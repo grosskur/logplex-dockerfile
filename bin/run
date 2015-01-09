@@ -1,0 +1,19 @@
+#!/bin/bash
+
+exec env INSTANCE_NAME="$(hostname)" erl \
+  +K true \
+  +A100 \
+  +P500000 \
+  -env ERL_MAX_PORTS 65535 \
+  -config sys \
+  -sname logplex \
+  -pa ebin \
+  -env ERL_LIBS deps \
+  -noshell \
+  -noinput \
+  -s logplex_app \
+  -setcookie "$LOGPLEX_COOKIE" \
+  +MBas aobf \
+  +MBlmbcs 512 \
+  -folsom_cowboy ip '{0,0,0,0}' \
+  "$@"
