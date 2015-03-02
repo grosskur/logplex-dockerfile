@@ -26,11 +26,11 @@ RUN \
 RUN \
   mkdir -p /tmp/src /app/logs && \
   cd /tmp/src && \
-  curl -fsLS -o logplex-79.tar.gz https://github.com/heroku/logplex/archive/v79.tar.gz && \
+  curl -fsLS -o logplex-82.tar.gz https://github.com/heroku/logplex/archive/v82.tar.gz && \
   curl -fsLS -o otp_src_R16B02.tar.gz http://www.erlang.org/download/otp_src_R16B02.tar.gz && \
-  echo 'd1cf713e4cfcd040c7db8941dbb9840427c367e80af61e5e3261cd300cf0084f  logplex-79.tar.gz' | sha256sum -c && \
+  echo '62ba6c9a31587279d0d335cde411771b50ec7431a4d77c1eeeb1092e4082f433  logplex-82.tar.gz' | sha256sum -c && \
   echo '6ab8ad1df8185345554a4b80e10fd8be06c4f2b71b69dcfb8528352787b32f85  otp_src_R16B02.tar.gz' | sha256sum -c && \
-  tar -C /app --strip-components=1 -xzf logplex-79.tar.gz && \
+  tar -C /app --strip-components=1 -xzf logplex-82.tar.gz && \
   tar -xzf otp_src_R16B02.tar.gz && \
   cd /tmp/src/otp_src_R16B02 && \
   ./configure --prefix=/app/.erlenv/releases/r16b02 && \
