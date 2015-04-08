@@ -26,14 +26,14 @@ RUN \
 RUN \
   mkdir -p /tmp/src /app/logs && \
   cd /tmp/src && \
-  curl -fsLS -o logplex-82.tar.gz https://github.com/heroku/logplex/archive/v82.tar.gz && \
-  curl -fsLS -o otp_src_R16B02.tar.gz http://www.erlang.org/download/otp_src_R16B02.tar.gz && \
-  echo '62ba6c9a31587279d0d335cde411771b50ec7431a4d77c1eeeb1092e4082f433  logplex-82.tar.gz' | sha256sum -c && \
-  echo '6ab8ad1df8185345554a4b80e10fd8be06c4f2b71b69dcfb8528352787b32f85  otp_src_R16B02.tar.gz' | sha256sum -c && \
-  tar -C /app --strip-components=1 -xzf logplex-82.tar.gz && \
-  tar -xzf otp_src_R16B02.tar.gz && \
-  cd /tmp/src/otp_src_R16B02 && \
-  ./configure --prefix=/app/.erlenv/releases/r16b02 && \
+  curl -fsLS -o logplex-83.tar.gz https://github.com/heroku/logplex/archive/v83.tar.gz && \
+  curl -fsLS -o otp_src_R16B03.tar.gz http://www.erlang.org/download/otp_src_R16B03.tar.gz && \
+  echo 'f4e74502390a578b0133f343d01c250493d89409852606f95632a3414c64c5d0  logplex-83.tar.gz' | sha256sum -c && \
+  echo '6133b3410681a5c934e54c76eee1825f96dead8d6a12c31a64f6e160daf0bb06  otp_src_R16B03.tar.gz' | sha256sum -c && \
+  tar -C /app --strip-components=1 -xzf logplex-83.tar.gz && \
+  tar -xzf otp_src_R16B03.tar.gz && \
+  cd /tmp/src/otp_src_R16B03 && \
+  ./configure --prefix=/app/.erlenv/releases/r16b03 && \
   make && \
   make install && \
   cd /tmp && \
@@ -41,7 +41,7 @@ RUN \
   chown -R nobody:nogroup /app
 
 WORKDIR /app
-ENV HOME=/app ERL_LIBS=/app/deps PATH=/app/.erlenv/releases/r16b02/bin:$PATH
+ENV HOME=/app ERL_LIBS=/app/deps PATH=/app/.erlenv/releases/r16b03/bin:$PATH
 
 RUN /app/rebar --config public.rebar.config get-deps compile
 
