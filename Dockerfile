@@ -26,11 +26,11 @@ RUN \
 RUN \
   mkdir -p /tmp/src /app/logs && \
   cd /tmp/src && \
-  curl -fsLS -o logplex-85.tar.gz https://github.com/heroku/logplex/archive/v85.tar.gz && \
+  curl -fsLS -o logplex-86.tar.gz https://github.com/heroku/logplex/archive/v86.tar.gz && \
   curl -fsLS -o otp_src_R16B03-1.tar.gz http://www.erlang.org/download/otp_src_R16B03-1.tar.gz && \
-  echo 'a82b29531292001ab96b8d1e0b8650492ab656b6e46fbab35ddc6496821652b2  logplex-85.tar.gz' | sha256sum -c && \
+  echo '9e04951ee5814e278630f7aaf637608790950af8086768fccaf802edc5c60aaf  logplex-86.tar.gz' | sha256sum -c && \
   echo '17ce53459bc5ceb34fc2da412e15ac8c23835a15fbd84e62c8d1852704747ee7  otp_src_R16B03-1.tar.gz' | sha256sum -c && \
-  tar -C /app --strip-components=1 -xzf logplex-85.tar.gz && \
+  tar -C /app --strip-components=1 -xzf logplex-86.tar.gz && \
   tar -xzf otp_src_R16B03-1.tar.gz && \
   cd /tmp/src/otp_src_R16B03-1 && \
   ./configure --prefix=/app/.local/otp && \
